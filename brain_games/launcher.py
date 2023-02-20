@@ -45,4 +45,4 @@ def play(game, user_name: str):
             print(wrong_msg)
             return
 
-    print(f'Congratulations, {user_name}')
+    print(f'Congratulations, {user_name}!')
