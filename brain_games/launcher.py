@@ -27,7 +27,7 @@ def play(game, user_name: str):
 
     while correct_answer_count < success_answers_count:
         game_data = game.generate_data()
-        
+
         question_str = game_data[0]
         print(f'Question: {question_str}')
 

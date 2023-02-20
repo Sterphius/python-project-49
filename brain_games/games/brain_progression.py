@@ -12,7 +12,7 @@ def generate_data():
     expected_result = None
     question = ''
     prev_value = randint(1, 100)
-    
+
     if k == 1:
         question += '.. '
         expected_result = str(prev_value)
@@ -20,7 +20,7 @@ def generate_data():
         question = str(prev_value) + ' '
 
     for x in range(2, progression_length + 1):
-        
+
         current_value = prev_value + diff
 
         if x == k:
