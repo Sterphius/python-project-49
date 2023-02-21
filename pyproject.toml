@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "sterphius-brain-games"
-version = "0.1.1"
+name = "hexlet-code"
+version = "0.1.0"
 description = "Brain-games: several terminal games that will allow you to stretch your brain"
 authors = ["Aleksei Malyshev <malyshff@gmail.com>"]
 readme = "README.md"
