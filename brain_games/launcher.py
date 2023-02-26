@@ -1,48 +1,40 @@
+import types
+
 import prompt
 
 from brain_games import cli
 
+MAX_ROUNDS_COUNT = 3
+BRAIN_GAMES_MODULE_NAME = 'brain_games.games.brain_games'
 
-def compare_results(actual, expected: str):
-    return True if actual.lower() == expected else False
 
-
-def run(game=None):
-
+def run(game: types.ModuleType = None):
     user_name = cli.welcome_user()
 
-    '''This check is for the game: brain_games
-    where the game step is welcoming user only'''
     if game is not None:
-        print(game.DESCRIPTION)
-        play(game, user_name)
+        '''This check is for the game: brain_games
+        where the game step is welcoming user only'''
+        if game.__name__ != BRAIN_GAMES_MODULE_NAME:
+            print(game.DESCRIPTION)
+        else:
+            return
     else:
-        return
+        raise TypeError
 
-
-def play(game, user_name: str):
-
-    correct_answer_count = 0
-    success_answers_count = 3
-
-    while correct_answer_count < success_answers_count:
-        game_data = game.generate_data()
-
-        question_str = game_data[0]
+    for _ in range(0, MAX_ROUNDS_COUNT):
+        question_str, expected_answer = game.generate_question_and_answer()
         print(f'Question: {question_str}')
 
-        answer = prompt.string('Your answer: ')
-        result = compare_results(answer, game_data[1])
+        actual_answer = prompt.string('Your answer: ')
+        result = True if actual_answer.lower() == expected_answer else False
 
-        wrong_msg = f"\'{answer}\' is wrong answer ;(. " \
-            f"Correct answer was \'{game_data[1]}\'.\n "\
+        wrong_msg = f"\'{actual_answer}\' is wrong answer ;(. " \
+            f"Correct answer was \'{expected_answer}\'.\n "\
             f"Let\'s try again, {user_name}!"
 
-        if result:
-            print('Correct')
-            correct_answer_count += 1
-        else:
+        if not result:
             print(wrong_msg)
             return
+        print('Correct')
 
     print(f'Congratulations, {user_name}!')

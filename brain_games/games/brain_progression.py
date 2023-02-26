@@ -1,34 +1,20 @@
 from random import randint
 
 DESCRIPTION = 'What number is missing in the progression?'
+PROGRESSION_LENGTH = 5
 
 
-def generate_data():
-    progression_length = 5
-
-    k = randint(1, progression_length)
+def generate_question_and_answer():
+    k = randint(1, PROGRESSION_LENGTH)
     diff = randint(1, 10)
 
-    expected_result = None
-    question = ''
-    prev_value = randint(1, 100)
+    array = [randint(1, 100)]
 
-    if k == 1:
-        question += '.. '
-        expected_result = str(prev_value)
-    else:
-        question = str(prev_value) + ' '
+    for i in range(1, PROGRESSION_LENGTH):
+        array.append(array[i - 1] + diff)
 
-    for x in range(2, progression_length + 1):
-
-        current_value = prev_value + diff
-
-        if x == k:
-            question += '.. '
-            expected_result = str(current_value)
-        else:
-            question += str(current_value) + ' '
-
-        prev_value = current_value
+    expected_result = str(array[k])
+    array[k] = '..'
+    question = ' '.join(map(str, array))
 
     return question, expected_result
