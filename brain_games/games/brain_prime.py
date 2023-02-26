@@ -20,6 +20,5 @@ def is_prime_number(value: int):
     for i in range(2, value // 2):
         if (value % i) == 0:
             return False
-            break
 
     return True
