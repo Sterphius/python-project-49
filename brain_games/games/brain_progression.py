@@ -5,7 +5,7 @@ PROGRESSION_LENGTH = 5
 
 
 def generate_question_and_answer():
-    k = randint(1, PROGRESSION_LENGTH)
+    k = randint(0, PROGRESSION_LENGTH-1)
     diff = randint(1, 10)
 
     array = [randint(1, 100)]
