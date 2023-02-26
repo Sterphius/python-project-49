@@ -14,7 +14,7 @@ def generate_question_and_answer():
 
 
 def is_prime_number(value: int):
-    if (value <= 0) or (value == 1) or (value % 2 == 0):
+    if value <= 2:
         return False
 
     for i in range(2, value // 2):
