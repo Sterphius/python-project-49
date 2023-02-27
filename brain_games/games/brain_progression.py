@@ -1,20 +1,19 @@
 from random import randint
+from typing import Tuple
 
 DESCRIPTION = 'What number is missing in the progression?'
 PROGRESSION_LENGTH = 5
 
 
-def generate_question_and_answer():
-    k = randint(0, PROGRESSION_LENGTH - 1)
-    diff = randint(1, 10)
+def generate_question_and_answer() -> Tuple[str, str]:
+    hidden_index = randint(0, PROGRESSION_LENGTH - 1)
+    step = randint(1, 10)
 
-    array = [randint(1, 100)]
+    start = randint(1, 100)
+    progression = [start * i + step for i in range(PROGRESSION_LENGTH)]
 
-    for i in range(1, PROGRESSION_LENGTH):
-        array.append(array[i - 1] + diff)
+    answer = str(progression[hidden_index])
+    progression[hidden_index] = '..'
+    question = ' '.join(map(str, progression))
 
-    expected_result = str(array[k])
-    array[k] = '..'
-    question = ' '.join(map(str, array))
-
-    return question, expected_result
+    return question, answer

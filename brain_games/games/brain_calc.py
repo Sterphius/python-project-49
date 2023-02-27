@@ -1,10 +1,11 @@
 import operator
 from random import randint, choice
+from typing import Tuple
 
 DESCRIPTION = 'What is the result of the expression?'
 
 
-def generate_question_and_answer():
+def generate_question_and_answer() -> Tuple[str, str]:
     num1, num2 = randint(1, 100), randint(1, 100)
 
     operations = ('+', '-', '*')
@@ -12,12 +13,12 @@ def generate_question_and_answer():
 
     question = f'{num1} {operation} {num2}'
 
-    expected_result = str(expected_result_from(num1, num2, operation))
+    answer = str(get_formatted_result(num1, num2, operation))
 
-    return question, expected_result
+    return question, answer
 
 
-def expected_result_from(a: int, b: int, op: str):
+def get_formatted_result(a: int, b: int, op: str) -> str:
 
     operation_result = {
         '+': operator.add(a, b),

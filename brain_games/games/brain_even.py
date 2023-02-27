@@ -1,12 +1,13 @@
 from random import randint
+from typing import Tuple
 
-DESCRIPTION = 'Answer \"yes\" if the number is even, otherwise answer \"no\".'
+DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
-def generate_question_and_answer():
+def generate_question_and_answer() -> Tuple[str, str]:
     random_number = randint(1, 100)
     question = str(random_number)
 
-    expected_result = 'yes' if random_number % 2 == 0 else 'no'
+    answer = 'yes' if random_number % 2 == 0 else 'no'
 
-    return question, expected_result
+    return question, answer

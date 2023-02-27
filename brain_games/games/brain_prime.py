@@ -1,24 +1,25 @@
 from random import randint
+from typing import Tuple
 
 DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
-def generate_question_and_answer():
-    a = randint(1, 100)
+def generate_question_and_answer() -> Tuple[str, str]:
+    rand_int = randint(1, 100)
 
-    question = f'{a}'
+    question = f'{rand_int}'
 
-    expected_result = 'yes' if is_prime_number(a) is True else 'no'
+    answer = 'yes' if is_prime_number(rand_int) is True else 'no'
 
-    return question, expected_result
+    return question, answer
 
 
-def is_prime_number(value: int):
-    if value <= 2:
+def is_prime_number(value: int) -> bool:
+    if value < 2:
         return False
 
     for i in range(2, value // 2):
-        if (value % i) == 0:
+        if value % i == 0:
             return False
 
     return True
