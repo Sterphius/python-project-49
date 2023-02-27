@@ -1,3 +1,4 @@
+from math import isqrt
 from random import randint
 from typing import Tuple
 
@@ -18,7 +19,7 @@ def is_prime_number(value: int) -> bool:
     if value < 2:
         return False
 
-    for i in range(2, value // 2):
+    for i in range(2, isqrt(value) + 1):
         if value % i == 0:
             return False
 
