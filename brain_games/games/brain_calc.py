@@ -6,14 +6,14 @@ DESCRIPTION = 'What is the result of the expression?'
 
 
 def generate_question_and_answer() -> Tuple[str, str]:
-    num1, num2 = randint(1, 100), randint(1, 100)
+    rnd_num1, rnd_num2 = randint(1, 100), randint(1, 100)
 
     operations = ('+', '-', '*')
     operation = choice(operations)
 
-    question = f'{num1} {operation} {num2}'
+    question = f'{rnd_num1} {operation} {rnd_num2}'
 
-    answer = str(get_formatted_result(num1, num2, operation))
+    answer = str(get_formatted_result(rnd_num1, rnd_num2, operation))
 
     return question, answer
 

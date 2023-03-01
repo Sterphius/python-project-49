@@ -5,9 +5,9 @@ DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
 def generate_question_and_answer() -> Tuple[str, str]:
-    random_number = randint(1, 100)
-    question = str(random_number)
+    rnd_num = randint(1, 100)
+    question = str(rnd_num)
 
-    answer = 'yes' if random_number % 2 == 0 else 'no'
+    answer = 'yes' if rnd_num % 2 == 0 else 'no'
 
     return question, answer

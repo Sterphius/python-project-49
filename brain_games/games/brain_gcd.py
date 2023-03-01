@@ -5,10 +5,10 @@ DESCRIPTION = 'Find the greatest common divisor of given numbers.'
 
 
 def generate_question_and_answer() -> Tuple[str, str]:
-    num1, num2 = randint(1, 100), randint(1, 100)
+    rnd_num1, rnd_num2 = randint(1, 100), randint(1, 100)
 
-    answer = str(find_gcd(num1, num2))
-    question = f'{num1} {num2}'
+    answer = str(find_gcd(rnd_num1, rnd_num2))
+    question = f'{rnd_num1} {rnd_num2}'
 
     return question, answer
 
