@@ -1,5 +1,4 @@
 import types
-from typing import Optional
 
 import prompt
 
@@ -8,13 +7,8 @@ from brain_games import cli
 MAX_ROUNDS_COUNT = 3
 
 
-def run(game: Optional[types.ModuleType] = None) -> None:
+def run(game: types.ModuleType) -> None:
     user_name = cli.welcome_user()
-
-    if game:
-        print(game.DESCRIPTION)
-    else:
-        return
 
     for _ in range(MAX_ROUNDS_COUNT):
         question, expected_answer = game.generate_question_and_answer()
