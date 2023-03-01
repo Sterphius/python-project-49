@@ -10,6 +10,8 @@ MAX_ROUNDS_COUNT = 3
 def run(game: types.ModuleType) -> None:
     user_name = cli.welcome_user()
 
+    print(game.DESCRIPTION)
+
     for _ in range(MAX_ROUNDS_COUNT):
         question, expected_answer = game.generate_question_and_answer()
         print(f'Question: {question}')
