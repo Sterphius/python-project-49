@@ -17,8 +17,8 @@ def run(game: Optional[types.ModuleType] = None) -> None:
         return
 
     for _ in range(MAX_ROUNDS_COUNT):
-        question_str, expected_answer = game.generate_question_and_answer()
-        print(f'Question: {question_str}')
+        question, expected_answer = game.generate_question_and_answer()
+        print(f'Question: {question}')
 
         actual_answer = prompt.string('Your answer: ')
         result = actual_answer.lower() == expected_answer
