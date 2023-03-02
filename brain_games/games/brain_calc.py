@@ -13,12 +13,12 @@ def generate_question_and_answer() -> Tuple[str, str]:
 
     question = f'{rnd_num1} {operation} {rnd_num2}'
 
-    answer = str(get_formatted_result(rnd_num1, rnd_num2, operation))
+    answer = str(calculate(rnd_num1, rnd_num2, operation))
 
     return question, answer
 
 
-def get_formatted_result(a: int, b: int, op: str) -> str:
+def calculate(a: int, b: int, op: str) -> int:
 
     operation_result = {
         '+': operator.add(a, b),
